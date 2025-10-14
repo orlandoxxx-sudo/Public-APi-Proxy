@@ -1,0 +1,31 @@
+{
+  "name": "cost-capped-public-api-proxy",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "infra",
+    "services/*",
+    "web"
+  ],
+  "scripts": {
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "format": "prettier --write .",
+    "deploy": "pnpm --filter infra deploy",
+    "cdk:synth": "pnpm --filter infra synth",
+    "dev:web": "pnpm --filter web dev"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.30",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsdoc": "48.2.0",
+    "eslint-plugin-prettier": "5.1.3",
+    "prettier": "3.2.5",
+    "typescript": "5.4.5",
+    "vitest": "1.4.0",
+    "ts-node": "10.9.2"
+  }
+}

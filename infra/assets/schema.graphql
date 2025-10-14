@@ -1,0 +1,10 @@
+type RatePoint { date: AWSDate, value: Float }
+type LatestResponse { base: String!, asOf: AWSDateTime!, rates: [KeyValue!]! }
+type KeyValue { key: String!, value: Float! }
+
+type Query {
+  getLatest(base: String!, symbols: [String!]!): LatestResponse!
+  getHistory(base: String!, symbol: String!, days: Int! = 30): [RatePoint!]!
+}
+
+schema { query: Query }

@@ -1,0 +1,8 @@
+node_modules
+cdk.out
+dist
+coverage
+.env
+web/.env.local
+pnpm-lock.yaml
+.DS_Store
