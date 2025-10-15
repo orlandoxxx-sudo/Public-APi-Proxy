@@ -2,24 +2,6 @@
 
 A production-ready MVP that fetches FX rates from a public source on a schedule, stores a compact history in DynamoDB, exposes a GraphQL API via AppSync with aggressive caching, and renders a Vue 3 dashboard. Guardrails enforce a daily external API budget to prevent runaway cost.
 
-```
-+-------------+        +------------------+        +---------------------+
-| EventBridge | -----> | Ingest Lambda    | -----> | DynamoDB FxRates    |
-| (hourly)    |        |  (cost guard)    |        |  PK=RATES#<BASE>    |
-+------+------+        +---------+--------+        +----------+----------+
-                               |                            ^
-                               | CloudWatch Metric          |
-                               v                            |
-                         FxProxy/ExternalCalls              |
-                                                             |
-                                                        +----+----+
-                                                        | AppSync |
-                                                        |  API    |
-                                                        +----+----+
-                                                             |
-                                                             v
-                                                      Vue 3 Dashboard
-```
 
 ## Monorepo layout
 
